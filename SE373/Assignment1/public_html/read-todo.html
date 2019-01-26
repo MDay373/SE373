@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment 1 - Promises</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Assignment 1 - Michael Day</h1>
+        <div id="badlink"><a href="badlink.html">This link goes home via a redirect</a></div>
+        <p>Json Results</p>
+        <div id="output"></div>
+
+        <script type="text/javascript">
+            let div = document.querySelector('#output')
+            let myRequest = 'http://localhost:3000/todo.json'
+            let htmlStr = '<ol>'
+            
+            fetch(myRequest)
+            .then(function(response) {                 
+                return response.json()                                
+            })
+            .then(function(json) { 
+                for (let index in json) {                     
+                    htmlStr += `<li>${json[index].userId}, ${json[index].id}, ${json[index].title}, ${json[index].completed}</li>`                                         
+                } 
+                htmlStr += '</ol>'
+                div.innerHTML += htmlStr 
+            })             
+        </script>
+        <style>
+                h1 {
+                    text-align:center;
+                }
+                p{
+                    font-weight: bold;
+                }
+                #output{
+                    font-style: italic;
+                }
+                #badlink {
+                    text-align:center;
+                }
+            </style>
+    </body>
+</html>

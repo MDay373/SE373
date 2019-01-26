@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment 1 - Promises</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>        
+        <h1>Assignment 1 - Michael Day</h1>
+        <div id="todo"><a href="read-todo.html">Todo Page</a></div>
+        <p>Three things I like:</p>
+        <div id="orderList"></div>
+        <p>Now in Dropdown box format:</p>
+        <div id="select"></div>
+        
+
+        <script type="text/javascript">
+            //Select the HTML objects for use
+            let orderedList = document.querySelector('#orderList')
+            let dropDown = document.querySelector('#select')
+            //Data Location
+            let myRequest = 'http://localhost:3000/myLikes.json'
+            //Build HTML String
+            let htmlStrOl = '<ol>'
+            let htmlStrDd = '<select>'         
+            
+            //Build ordered list using fetch (Promise)
+            fetch(myRequest)
+            .then(function(response) {                 
+                return response.json()                                
+            })
+            .then(function(json) { 
+                for (let index in json) {                     
+                    htmlStrOl += `<li> ${json[index].id}, ${json[index].item}</li>`                                         
+                } 
+                htmlStrOl += '</ol>'
+                orderedList.innerHTML += htmlStrOl 
+            })
+
+            //Build Dropdown list using fetch (Promise)
+            fetch(myRequest)
+            .then(function(response) {                 
+                return response.json()                                
+            })
+            .then(function(json) { 
+                for (let index in json) {                     
+                    htmlStrDd += `<option> ${json[index].item}</option>`                                         
+            } 
+                htmlStrDd += '</select>'
+                dropDown.innerHTML += htmlStrDd
+            })             
+        </script>
+
+    <style>
+        h1 {
+            text-align:center;
+        }
+        p{
+            font-weight: bold;
+        }
+        #todo {
+            text-align:center;
+        }
+    </style>
+
+    </body>
+
+</html>

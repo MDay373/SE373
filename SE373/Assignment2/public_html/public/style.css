@@ -1,0 +1,17 @@
+@charset "utf-8";
+h2 {
+    text-align: center;
+}
+
+li {
+    list-style-type: none;
+}
+
+.jumbotron {
+    margin-bottom: 0px !important;
+    padding-bottom: 0px;
+}
+
+.navbar {
+    margin-top: 0px;
+}

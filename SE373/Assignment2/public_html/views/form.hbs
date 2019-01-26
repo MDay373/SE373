@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Form</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="jumbotron">
+        <h2>Enter Your Information</h2>
+    </div>
+
+    <ul class="navbar navbar-dark bg-dark">
+        {{> navbar}}
+    </ul>
+    <div class="container">
+        <form class="form-horizontal" action="/result" method="POST">
+            <div class="form-group">
+                <input class="form-control" type="text" name="username" placeholder="Enter Username">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="email" name="emailaddress" placeholder="Enter Email">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" name="comments" placeholder="Enter Comments here..."></textarea>
+
+            </div>
+            <div class="form-group">
+
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

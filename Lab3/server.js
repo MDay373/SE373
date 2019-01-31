@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
     res.render('index.hbs');
 });
 
-app.post('/gridDisplay', (req, res) => {    
+app.all('/gridDisplay', (req, res) => {    
     res.render('gridDisplay.hbs',{        
         selectedValue: req.body.myList
     });

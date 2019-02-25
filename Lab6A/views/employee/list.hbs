@@ -1,0 +1,33 @@
+<h3><a class="btn btn-secondary" href="/employee"><i class="fa fa-plus"></i> Add New Employee</a> All Employees</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Department</th>
+            <th>Start Date</th>
+            <th>Title</th>
+            <th>Salary</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.firstName}}</td>
+            <td>{{this.lastName}}</td>
+            <td>{{this.department}}</td>
+            <td>{{formatDate this.startDate}}</td>
+            <td>{{this.jobTitle}}</td>
+            <td>{{this.salary}}</td>            
+            <td>
+                <a href="/employee/{{this._id}}" ><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>                
+            </td>
+            <td>
+                <a href="/employee/delete/{{this._id}}" onclick="return confirm('Are you sure you wish to delete this record?')"><i class="fa fa-trash fa-lg" aria-hidden="true" ></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

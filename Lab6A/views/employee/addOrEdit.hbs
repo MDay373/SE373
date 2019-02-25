@@ -1,0 +1,56 @@
+<h3>{{viewTitle}}</h3>
+
+<form action="/employee" method="POST" autocomplete="off">
+    <input type="hidden" name="_id" value="{{employee._id}}">
+    <div class="form-group">
+        <label>First Name</label>
+        <input type="text" class="form-control" name="firstName" value="{{employee.firstName}}">
+        <div class="text-danger">
+            {{employee.firstNameError}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" class="form-control" name="lastName" value="{{employee.lastName}}">
+        <div class="text-danger">
+            {{employee.lastNameError}}
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="hidden" id="selectedDept" value="{{employee.department}}">
+        <label>Department</label>
+        <select class="selectpicker" data-style="btn-info" name="department" , id="departments">            
+            {{#each departments}}
+            <option value="{{this}}">{{this}}</option>
+            {{/each}}
+        </select>
+        <script>
+            document.getElementById("departments").value = document.getElementById("selectedDept").value;
+        </script>
+    </div>
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" name="title" value="{{employee.jobTitle}}">
+        <div class="text-danger">
+            {{employee.titleError}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Start Date</label>
+        <input type="date" class="form-control" name="startDate" value="{{formatDate employee.startDate}}">
+        <div class="text-danger">
+            {{employee.startDateError}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Salary</label>
+        <input type="number" class="form-control" name="salary" value="{{employee.salary}}">
+        <div class="text-danger">
+            {{employee.salaryError}}
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i>Submit</button>
+        <a class="btn btn-secondary" href="/employee/list"><i class="fa fa-list"></i> View All</a>
+    </div>
+</form>
